@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculadora',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.green,
       ),
       home: MyHomePage(title: 'Calculadora'),
       debugShowCheckedModeBanner: false,
@@ -178,6 +178,13 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(
               fontSize: 28.0, color: Colors.black, fontFamily: 'RobotoMono'),
         ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              return Theme.of(context).colorScheme.primary.withOpacity(0.2);
+            },
+          ),
+        ),
         onPressed: () {
           setState(() {
             txtEntrada.text = "";
@@ -198,6 +205,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ? (txtEntrada.text.substring(0, txtEntrada.text.length - 1))
               : "";
         },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              return Theme.of(context).colorScheme.primary.withOpacity(0.2);
+            },
+          ),
+        ),
       ),
     );
   }
@@ -210,6 +224,13 @@ class _MyHomePageState extends State<MyHomePage> {
           '=',
           style: TextStyle(
               fontSize: 28.0, color: Colors.black, fontFamily: 'RobotoMono'),
+        ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+            (Set<MaterialState> states) {
+              return Theme.of(context).colorScheme.primary.withOpacity(0.2);
+            },
+          ),
         ),
         onPressed: () {
           Parser p = new Parser();
